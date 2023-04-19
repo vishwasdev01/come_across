@@ -1,0 +1,43 @@
+
+<p>
+  <strong>Name:</strong>
+  <%= @place.name %>
+</p>
+
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @place.lat %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @place.lng %>
+</p>
+
+<p>
+  <strong>Visit Date:</strong>
+  <%= @place.visit_date %>
+</p>
+
+
+<h2>Comments</h2>
+
+<%= render @place.comments %>
+
+<%= form_for [@place, @comment] do |f| %>
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+  <%= f.submit "Add comment" %>
+<% end %>
+
+<h2>Pictures</h2>
+
+<%= render @place.pictures %>
+
+<%= form_for [@place, @picture] do |f| %>
+  <%= f.label :image_url %>
+  <%= f.text_field :image_url %>
+  <%= f.submit "Add picture" %>
+<% end %>
+
